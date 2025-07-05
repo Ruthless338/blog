@@ -10,15 +10,11 @@ tags:
 # 熵
 熵（Entropy）是概率论中的一个概念，用于度量概率分布的混乱程度。熵越小，概率分布越均匀，越容易预测。  
 熵的计算公式为：
-$$
-H(X) = - \sum_ {x \in \mathcal{X}} P(x) \log P(x)
-$$
+$$ H(X) = - \sum_ {x \in \mathcal{X}} P(x) \log P(x) $$
 
 # 交叉熵
 交叉熵是一种度量两个概率分布之间的差异的度量方法。
-$$
-H(P, Q) = - \sum_ {x \in \mathcal{X}} P(x) \log Q(x) = - \int P(x) \log Q(x) dx 
-$$
+$$ H(P, Q) = - \sum_ {x \in \mathcal{X}} P(x) \log Q(x) = - \int P(x) \log Q(x) dx $$
 
 # KL散度
 
@@ -26,6 +22,7 @@ KL散度（Kullback - Leibler Divergence），也被称为相对熵，是一种�
 
 
 对于离散概率分布，KL散度的公式为：
+
 $$
 \begin{aligned}
 D_{KL}(P \| Q) &= H(P, Q) - H(P)  \\ 
@@ -33,6 +30,7 @@ D_{KL}(P \| Q) &= H(P, Q) - H(P)  \\
 &= \sum_ {x \in \mathcal{X}} P(x) \log \frac{P(x)}{Q(x)}
 \end{aligned}
 $$
+
 其中：
 - P 和 Q 是定义在相同样本空间 $\mathcal{X}$ 上的两个概率分布。
 - P(x) 和 Q(x) 分别是概率分布 P 和 Q 在样本 x 处的概率值。
