@@ -107,3 +107,13 @@ deploy:
   type: git
   repo: https://github.com/Ruthless338/Ruthless.github.io.git
   branch: master
+
+markdown:
+  render:
+    html: true
+    xhtmlOut: false
+    breaks: true
+    linkify: true
+    typographer: true
+  plugins:
+    - markdown-it-mathjax3

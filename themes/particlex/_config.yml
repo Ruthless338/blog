@@ -80,6 +80,7 @@ highlight:
 # KaTeX math rendering
 math:
     enable: true
+    engine: mathjax
 
 # Image preview
 preview:
