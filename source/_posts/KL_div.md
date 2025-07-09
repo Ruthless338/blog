@@ -12,6 +12,8 @@ tags:
 熵的计算公式为：
 $$ H(X) = - \sum_ {x \in \mathcal{X}} P(x) \log P(x) $$
 
+<!--more-->
+
 # 交叉熵
 交叉熵是一种度量两个概率分布之间的差异的度量方法。
 $$ H(P, Q) = - \sum_ {x \in \mathcal{X}} P(x) \log Q(x) = - \int P(x) \log Q(x) dx $$
