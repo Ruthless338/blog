@@ -7,6 +7,7 @@ avatar: /images/avatar.jpg
 # Home page background image
 background:
     - /images/background.jpg
+    - /images/background1.png
 
 # Loading image
 loading: /images/loading.gif
@@ -49,15 +50,16 @@ menu:
 card:
     enable: true
     description: |
-        Description
-        ...
+        ON YOUR MARKS!
     iconLinks:
     friendLinks:
-        Argvchs: https://argvchs.github.io
+        Argvchs(主题博客): https://argvchs.github.io
+        Yokumi(舍友-大佬): https://blog.yokumi.cn/
+        BIMU(舍友-大佬): https://www.bimu.site/
 
 # Footer info
 footer:
-    since: 2022
+    since: 2025
     # Customize the server domain name ICP
     ICP:
         enable: false
@@ -92,24 +94,24 @@ crypto:
 
 # Search
 search:
-    enable: false
+    enable: true
 
 # giscus
 # https://github.com/giscus/giscus
 giscus:
-    enable: false
+    enable: true
     src: https://giscus.app/client.js
-    repo:
-    repoID:
-    category:
-    categoryID:
+    repo: Ruthless338/blog
+    repoID: R_kgDOPG6PWg
+    category: General
+    categoryID: DIC_kwDOPG6PWs4CssNf
     mapping: pathname
     strict: 0
     reactionsEnabled: 1
     emitMetadata: 0
     inputPosition: bottom
     theme: preferred_color_scheme
-    lang:
+    lang: zh-CN
 
 # Gitalk
 # https://github.com/gitalk/gitalk
