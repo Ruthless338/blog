@@ -9,14 +9,22 @@
             </span>
             创建：<%= date(page.date, "YYYY/M/D") %>
         </span>
-        <% if (page.updated && page.updated.getTime() !== page.date.getTime()) { %>
-        <span class="date">
-            <span class="icon">
+        <% 
+            function toTime(val) {
+                if (!val) return 0;
+                if (typeof val === 'string') return new Date(val).getTime();
+                if (typeof val.getTime === 'function') return val.getTime();
+                return 0;
+            }
+            %>
+            <% if (page.updated && toTime(page.updated) !== toTime(page.date)) { %>
+            <span class="date">
+                <span class="icon">
                 <i class="fa-solid fa-rotate fa-fw"></i>
+                </span>
+                更新：<%= date(page.updated, "YYYY/M/D") %>
             </span>
-            更新：<%= date(page.updated, "YYYY/M/D") %>
-        </span>
-        <% } %>
+            <% } %>
         <% if (page.categories && page.categories.data.length !== 0) { %>
         <span class="category">
             <a href="<%- url_for(page.categories.data[0].path) %>">
