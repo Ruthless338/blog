@@ -7,8 +7,16 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            <%= date(page.date, "YYYY/M/D") %>
+            创建：<%= date(page.date, "YYYY/M/D") %>
         </span>
+        <% if (page.updated && page.updated.getTime() !== page.date.getTime()) { %>
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-rotate fa-fw"></i>
+            </span>
+            更新：<%= date(page.updated, "YYYY/M/D") %>
+        </span>
+        <% } %>
         <% if (page.categories && page.categories.data.length !== 0) { %>
         <span class="category">
             <a href="<%- url_for(page.categories.data[0].path) %>">
