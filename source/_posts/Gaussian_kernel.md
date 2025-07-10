@@ -4,6 +4,7 @@ categories:
     - 科研 
 tags: 
     - 机器学习
+    - 核函数
 ---
 
 
