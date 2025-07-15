@@ -1,5 +1,6 @@
 ---
 title: 变分推理、ELBO与变分自编码器
+date: 2025-07-03
 categories:
   - 科研
 tags: 

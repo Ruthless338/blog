@@ -3,6 +3,7 @@ title: Toward Accurate Cardiac MRI Segmentation
     With Variational Autoencoder-Based
     Unsupervised Domain Adaptation
     论文复现
+date: 2025-07-07
 categories: 
     - 科研
 tags: 
@@ -30,7 +31,7 @@ tags:
 5. 原型对比损失(局部特征对齐损失)
 6. 源域和目标域上生成器与判别器的对抗损失(隐式特征对齐损失)
 
-论文复现代码见：[cardiac_uda_vamcei](https://github.com/Ruthless338/cardiac_uda_vamcei)
+论文复现代码见：[cardiac_uda_vamcei](https://github.com/Ruthless338/VAMCEI)
 
 接下来重点解析论文中的关键数学推导，包括：
  1. 变分自编码器（VAE）的目标函数

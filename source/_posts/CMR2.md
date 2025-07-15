@@ -1,5 +1,6 @@
 ---
 title: CUTS -- A Deep Learning and Topological Framework for Multigranular Unsupervised Medical Image Segmentation
+date: 2025-07-10
 categories: 
     - 科研
 tags: 

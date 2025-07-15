@@ -1,5 +1,6 @@
 ---
 title: 高斯核
+date: 2025-07-09
 categories:
     - 科研 
 tags: 

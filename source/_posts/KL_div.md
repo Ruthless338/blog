@@ -1,5 +1,6 @@
 ---
 title: 熵、交叉熵与KL散度
+date: 2025-07-02
 categories: 
     - 科研
 tags: 
