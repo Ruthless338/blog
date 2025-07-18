@@ -9,6 +9,8 @@ tags:
     - 扩散映射
     - 机器学习
     - 语义分割
+    - 论文
+    - CMR
 ---
 
 论文链接：[CUTS: A Deep Learning and Topological Framework for Multigranular Unsupervised Medical Image Segmentation](https://link.springer.com/chapter/10.1007/978-3-031-72111-3_15)
