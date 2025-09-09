@@ -6,7 +6,8 @@ categories:
 tags: 
     - Pytorch
 ---
-
+总结一些torch.nn的常见函数。
+<!--more-->
 ---
 ## 激活函数
 1. **ReLU（Rectified Linear Unit）**
