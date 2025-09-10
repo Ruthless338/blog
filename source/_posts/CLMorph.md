@@ -1,8 +1,15 @@
 ---
-
+title: CLMorph
+date: 2025-9-8
+categories:
+   - 科研
+tags: 
+   - 图像配准
+   - MR
+   - 机器学习
 ---
-VoxelMorph: 
-CLMorph: 
+VoxelMorph是很经典的无监督学习图像配准，可以用来分割，但效果并不好，因为没有对图像内部结构进行特征提取，无法做到内部的对齐配准，CLMorph解决了这一问题.
+<!--more-->
 # 从VoxelMorph到CLMorph：核心思路对比解析
 
 ## 一、先回顾：VoxelMorph的核心逻辑（理解CLMorph的基础）

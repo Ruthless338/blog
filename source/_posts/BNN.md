@@ -1,5 +1,11 @@
 ---
-
+title: 贝叶斯神经网络
+date: 2025-8-10
+categories: 
+   - 科研
+tags:
+   - 贝叶斯推断
+   - 机器学习
 ---
 # 贝叶斯神经网络（Bayesian Neural Network, BNN）
 
