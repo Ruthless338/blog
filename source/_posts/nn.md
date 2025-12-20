@@ -72,8 +72,11 @@ tags:
 - **作用**：对每个样本的每个通道分别做归一化，常用于风格迁移等任务，能提升模型的泛化能力。
 - **常见参数**：
   - `num_features`：输入的通道数（即 C）。
-  - `eps`：为防止除零而加到分母上的一个很小的数，默认 1e-5。
 
+**BatchNorm2d**
+- **作用**: 一个批次（batch）中所有样本的同一通道，计算全局均值和方差,常用于分类、目标检测。
+- **常见参数**:
+  - `num_features`：输入的通道数（即 C）。
 
 ---
 ## 卷积函数
@@ -93,6 +96,34 @@ W_{out}=⌊\frac {W+2×p−(d×(w−1)+1)} {s}⌋+1
   - `dilation`：膨胀系数，默认 1，即填充在卷积核内部的空间。
   - `groups`：分组卷积，默认 1。
   - `bias`：是否有偏置项，默认 True。
+
+**ConvTranspose2d**
+- **作用**：二维转置卷积（反卷积），常用于上采样或生成更大空间分辨率的特征图。
+- **输出尺寸**（输入为 $(H, W)$，卷积核 $(h, w)$，步长 s，填充 p，膨胀 d，输出填充 `output_padding` 为 $op$）：
+$$
+H_{out} = (H - 1)\times s - 2\times p + d\times(h-1) + op + 1 \\
+W_{out} = (W - 1)\times s - 2\times p + d\times(w-1) + op + 1
+$$
+
+- **常见参数**：
+  - `in_channels`：输入通道数。
+  - `out_channels`：输出通道数（卷积核个数）。
+  - `kernel_size`：卷积核尺寸，可以是单个 int 或 (h, w) 元组。
+  - `stride`：步幅，默认 1。
+  - `padding`：输入侧的零填充大小，默认 0。
+  - `output_padding`：为了解决上采样后尺寸歧义而添加的额外输出填充值，默认 0。
+  - `dilation`：膨胀系数，默认 1。
+  - `groups`：分组卷积，默认 1。
+  - `bias`：是否使用偏置项，默认 True。
+- **缺点**：转置卷积易造成checkerboard（棋盘格），常见原因为步长大于核尺寸的一半，或者连续使用多次转置卷积，或者参数(如stride和padding)设置不当，可使用nn.Upsample + 普通卷积来缓解和解决。
+
+**Upsample**
+- **作用**：非参数化的上采样操作（不包含可学习权重），常用于放大特征图尺寸，可配合 `mode` 选择最近邻、双线性等插值方式。
+- **常见参数**：
+  - `size`：目标输出尺寸（H, W），不可与scale_factor同时存在。
+  - `scale_factor`：缩放因子（可为单个数或 (h, w) 元组）。
+  - `mode`：插值方式，如 `'nearest'`、`'bilinear'`、`'bicubic'`、`'trilinear'`（3D）。
+  - `align_corners`：当 `mode` 为线性插值（如 `'bilinear'`、`'bicubic'`）时是否对齐角点，默认 False。
 
 ---
 
