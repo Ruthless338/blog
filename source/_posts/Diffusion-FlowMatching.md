@@ -1,3 +1,12 @@
+---
+title: Diffusion与FlowMatching
+date: 2026-01-09
+categories:
+    - 科研 
+tags: 
+    - 深度学习
+    - 生成模型
+---
 Stable Diffusion + Text Inversion完整工作流程：
 1. Text Inversion(TI)训练: 有监督训练，text_encoder一般是Transformer，输入为prompt+示例图，输出为文本嵌入向量，再经过扩散模型（预训练冻结的SD）生成图，对比示例图完成训练
 2. 逆扩散：生成一个纯随机高斯噪声，选择一个prompt经过TI生成文本向量，经过t步去噪，每步去噪输入为上一步潜噪声+文本向量+步数t，经过U-Net得到大小不变的预测噪声，最后经过scheduler得到新潜变量

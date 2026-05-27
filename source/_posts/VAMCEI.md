@@ -1,17 +1,14 @@
 ---
-title: Toward Accurate Cardiac MRI Segmentation
-    With Variational Autoencoder-Based
-    Unsupervised Domain Adaptation
-    论文复现
+title: Toward Accurate Cardiac MRI Segmentation With Variational Autoencoder-Based Unsupervised Domain Adaptation 论文复现
 date: 2025-07-07
-categories: 
-    - 科研
-tags: 
-    - 论文
-    - 机器学习
-    - 语义分割
-    - CMR
-    - 变分推理
+categories:
+  - 科研
+tags:
+  - 论文
+  - 机器学习
+  - 语义分割
+  - CMR
+  - 变分推理
 ---
 
 论文链接：[Toward Accurate Cardiac MRI Segmentation With Variational Autoencoder-Based Unsupervised Domain Adaptation](https://ieeexplore.ieee.org/abstract/document/10483021)  
