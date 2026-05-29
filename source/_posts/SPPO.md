@@ -6,6 +6,7 @@ categories:
 tags:
     - 强化学习
     - PPO
+    - GRPO
 ---
 
 GRPO 与 SPPO 的动机、原理、公式及代码笔记。
