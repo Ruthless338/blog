@@ -255,7 +255,60 @@ $$A_t \approx \delta_t$$
 
 这使得模型不必等到完整任务结束，就能逐步学习。
 
-## 十一、PPO（Proximal Policy Optimization）
+
+## 十一、GAE（Generalized Advantage Estimation）
+
+GAE的核心思想是：不只用当前这一步的 TD Error 来估计优势，而是把未来多步的 TD Error 按一定权重累加起来，在偏差和方差之间做一个平衡。
+
+### 11.1 从 TD Error 出发
+
+GAE 的基础仍然是 TD Error：
+
+$$\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)$$
+
+其中：
+- $r_t$：当前时刻收到的奖励；
+- $V(s_t)$：当前状态的预测价值；
+- $V(s_{t+1})$：下一状态的预测价值；
+- $\gamma$：未来奖励折扣。
+
+直觉上：
+
+$$\text{实际获得的当前奖励} + \text{下一步预期} - \text{当前原本预期}$$
+
+如果结果比预期好，$\delta_t > 0$。
+
+### 11.2 GAE 的递推形式
+
+GAE 把未来的 TD Error 也传回来：
+
+$$A_t^{\text{GAE}} = \delta_t + \gamma\lambda \, A_{t+1}^{\text{GAE}}$$
+
+展开后等价于：
+
+$$A_t^{\text{GAE}} = \sum_{k=0}^{\infty} (\gamma\lambda)^k \, \delta_{t+k}$$
+
+其中：
+- $\gamma$：奖励向前传播时的折扣；
+- $\lambda$：控制未来误差传播回来的强度。
+
+$\lambda$ 的作用：
+- $\lambda = 0$：GAE 退化为一步 TD Error，即 $A_t = \delta_t$，偏差大但方差小；
+- $\lambda = 1$：GAE 退化为 Monte Carlo Return，即 $A_t = G_t - V(s_t)$，无偏但方差大；
+- $0 < \lambda < 1$：在偏差和方差之间折中，实践中常取 $\lambda = 0.95$。
+
+### 11.3 计算方式
+
+由于递推关系 $A_t^{\text{GAE}} = \delta_t + \gamma\lambda \, A_{t+1}^{\text{GAE}}$ 依赖未来的优势值，因此代码中**从后往前**计算：
+
+1. 先算最后一个 token 的 advantage
+2. 再算倒数第二个
+3. 再算倒数第三个
+4. ……
+
+这与代码中 `compute_returns_and_advantages()` 里 `for t in reversed(range(num_steps))` 的写法完全对应。
+
+## 十二、PPO（Proximal Policy Optimization）
 
 PPO 的基本出发点是：Policy Gradient 虽然能优化策略，但一次更新太大时，策略可能突然崩掉，因此需要限制新策略偏离旧策略太多。
 
@@ -263,7 +316,7 @@ PPO 关注新旧策略对同一个动作的概率变化：
 
 $$r_t(\theta) = \frac{\pi_\theta(a_t \mid s_t)}{\pi_{\theta_{\text{old}}}(a_t \mid s_t)}$$
 
-### 11.1 PPO 的裁剪目标
+### 12.1 PPO 的裁剪目标
 
 PPO 使用 clipping 限制变化：
 
@@ -271,7 +324,7 @@ $$\mathcal{L}^{\text{CLIP}} = \mathbb{E} \left[ \min \Bigl( r_t(\theta) A_t,\; \
 
 PPO 本质上仍然是 Policy Gradient，只是在更新策略时加入了保护机制，避免策略一步变化太大。
 
-## 十二、核心公式总结
+## 十三、核心公式总结
 
 下面展示 PPO 训练流程中最重要的四组公式，它们与代码一一对应。
 
@@ -305,7 +358,7 @@ $$\mathcal{L}_{\text{PPO}} = -\min\Bigl( \mathrm{ratio}_t \cdot \hat{A}_t,\; \op
 
 把这四个公式与下方代码一一对应起来，你就已经掌握了 PPO 最核心的 Actor-Critic 训练结构。
 
-## 十三、PPO 代码实现
+## 十四、PPO 代码实现
 
 ```cpp
 from dataclasses import dataclass
