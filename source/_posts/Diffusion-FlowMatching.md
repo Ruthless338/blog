@@ -7,6 +7,8 @@ tags:
     - 深度学习
     - 生成模型
 ---
+Diffusion Model 和 Flow Matching的简单理解与相关论文。
+<!--more-->
 Stable Diffusion + Text Inversion完整工作流程：
 1. Text Inversion(TI)训练: 有监督训练，text_encoder一般是Transformer，输入为prompt+示例图，输出为文本嵌入向量，再经过扩散模型（预训练冻结的SD）生成图，对比示例图完成训练
 2. 逆扩散：生成一个纯随机高斯噪声，选择一个prompt经过TI生成文本向量，经过t步去噪，每步去噪输入为上一步潜噪声+文本向量+步数t，经过U-Net得到大小不变的预测噪声，最后经过scheduler得到新潜变量
@@ -15,6 +17,7 @@ Stable Diffusion + Text Inversion完整工作流程：
 Flow Matching：
 不同于Diffusion Model，FM步数少，每一步使用UNet去预测速度场
 
+下面列出一些使用Diffusion或者FM的论文，收集背景为Medical Data Augmentation。
 
 1. MRGen: Segmentation Data Engine for Underrepresented MRI Modalities
 Diffusion Model+text-guided + mask-conditioned生成，主要用于分割
