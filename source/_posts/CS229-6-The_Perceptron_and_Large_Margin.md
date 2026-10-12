@@ -9,7 +9,7 @@ tags:
 mathjax: true
 ---
 
-## 感知机
+感知机
 
 <!--more-->
 

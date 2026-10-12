@@ -360,7 +360,7 @@ $$\mathcal{L}_{\text{PPO}} = -\min\Bigl( \mathrm{ratio}_t \cdot \hat{A}_t,\; \op
 
 ## 十四、PPO 代码实现
 
-```cpp
+```python
 from dataclasses import dataclass
 from typing import Dict
 
