@@ -1,6 +1,6 @@
 ---
 title: CS229-2 Generative Learning
-date: 2026-05-31
+date: 2026-05-31 8:00:00
 categories:
     - 科研
 tags:

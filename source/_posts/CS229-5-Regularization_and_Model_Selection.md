@@ -1,6 +1,6 @@
 ---
 title: CS229-5 Regularization and Model Selection
-date: 2026-06-01
+date: 2026-06-01 9:00:00
 categories:
     - 科研
 tags:

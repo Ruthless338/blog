@@ -1,6 +1,6 @@
 ---
 title: CS229-4 Learning Theory
-date: 2026-06-01
+date: 2026-06-01 8:00:00
 categories:
     - 科研
 tags:

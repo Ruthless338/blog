@@ -1,6 +1,6 @@
 ---
 title: CS229-6 The Perceptron and Large Margin
-date: 2026-06-07
+date: 2026-06-07 8:00:00
 categories:
     - 科研
 tags:

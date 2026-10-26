@@ -1,6 +1,6 @@
 ---
 title: Matrix theory in machine learning
-date: 2026-06-09
+date: 2026-06-09 8:00:00
 categories:
     - 科研
 tags:

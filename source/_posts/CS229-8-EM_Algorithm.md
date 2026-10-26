@@ -1,6 +1,6 @@
 ---
 title: CS229-8 The Expectation-Maximization Algorithm
-date: 2026-06-07
+date: 2026-06-07 10:00:00
 categories:
     - 科研
 tags:

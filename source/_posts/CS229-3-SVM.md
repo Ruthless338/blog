@@ -1,6 +1,6 @@
 ---
 title: CS229-3 Support Vector Machines
-date: 2026-05-31
+date: 2026-05-31 9:00:00
 categories:
     - 科研
 tags:

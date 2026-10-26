@@ -1,6 +1,6 @@
 ---
 title: CS229-7 K-means and EM / Gaussian Mixture Models
-date: 2026-06-07
+date: 2026-06-07 9:00:00
 categories:
     - 科研
 tags:
